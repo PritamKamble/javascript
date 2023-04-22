@@ -1,0 +1,30 @@
+<html>
+
+<body>
+    Enter items to buy <br>
+    <input id="task" type="text">
+    <div id="error"></div>
+    <br>
+    <button onclick="onAddItem()">Add</button> <br>
+    <ul id="list">
+
+    </ul>
+</body>
+<script>
+    var errorElem = document.getElementById('error');
+    var taskElem = document.getElementById('task');
+    var listElem = document.getElementById('list');
+    function onAddItem() {
+        errorElem.innerText = '';
+        if (taskElem.value && taskElem.value.trim()) {
+            var li = document.createElement('li');
+            li.innerText = taskElem.value;
+            listElem.appendChild(li);
+            taskElem.value = '';
+        } else {
+            errorElem.innerText = 'Please enter task';
+        }
+    }
+</script>
+
+</html>

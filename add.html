@@ -1,0 +1,19 @@
+<html>
+    <body>
+        Number 1: <input id="num1" type="number" value="0"><br>
+        Number 2: <input id="num2" type="number" value="0"><br>
+        <button onclick="onClickBtn()">Add</button>
+        <div id="ans">Ans is : 0</div>
+    </body>
+    <script>
+        var num1Elem = document.getElementById("num1");
+        var num2Elem = document.getElementById("num2");
+        var ansElem = document.getElementById("ans");
+        function onClickBtn() {
+            var num1Value = parseInt(num1Elem.value);
+            var num2Value = parseInt(num2Elem.value);
+            var sum = num1Value + num2Value;
+            ansElem.innerText = sum;
+        }
+    </script>
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<body>
+    <div style="text-align: center;">
+        Enter email <input type="email" id="email"><br><br>
+        Enter password <input type="password" id="password"><br><br>
+        Confirm password <input type="password" id="confirmPassword"><br><br>
+        <button onclick="register()">Register</button>
+        <div id="msg"></div>
+    </div>
+</body>
+<script>
+    // get all elements
+    var emailElem = document.getElementById('email');
+    var passwordElem = document.getElementById('password');
+    var confirmPasswordElem = document.getElementById('confirmPassword');
+    var msgElem = document.getElementById('msg');
+
+    // declare regex
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+    // declare flags for validation
+    isEmailValid = false;
+    isPasswordValid = false;
+    function register() {
+
+        // reset flags
+        isEmailValid = false;
+        isPasswordValid = false;
+        msgElem.innerText = '';
+        
+        // email validation
+        if (!(emailElem.value && emailElem.value.trim())) {
+            msgElem.innerText = 'Please enter email';
+            return;
+        }
+        if (emailRegex.test(emailElem.value)) {
+            isEmailValid = true;
+            return;
+        } else {
+            isEmailValid = false;
+            msgElem.innerText = 'Please enter valid email address';
+            return;
+        }
+
+        // pass validation
+        if (passRegex.test(passwordElem.value)) {
+            isPasswordValid = true;
+            return;
+        } else {
+            isPasswordValid = false;
+            msgElem.innerText = 'Please enter valid password';
+            return;
+        }
+
+    }
+</script>
+
+</html>
